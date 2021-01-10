@@ -1,3 +1,13 @@
+import Vue from 'vue'
+import App from 'pages/App.vue'
+
+new Vue({
+    el: '#app',
+    render: a=>a(App)
+})
+
+/*
+
 function getIndex(list, id) {
     for (var i = 0; i < list.length; i++) {
         if (list[i] === id) {
@@ -60,7 +70,7 @@ Vue.component('waybill-row', {
         '<i>({{ waybill.id }})</i> {{ waybill.auto }}' +
         '<span style="position: absolute; right: 0;">' +
         '<input type="button" value="Edit" @click="edit" />' +
-        '<input type="button" value="X" @click="del" />' +
+        '<input type="button" value="X2" @click="del" />' +
         '</span>' +
         '</div>',
     methods: {
@@ -91,14 +101,6 @@ Vue.component('waybills-list', {
         '<waybill-row v-for="waybill in waybills" :key="waybill.id" :waybill="waybill" ' +
         ':waybills="waybills" :editWaybill="editWaybill"/>' +
         '</div>',
-    created: function () {
-        waybillApi.get().then(result => {
-                result.json().then(data =>
-                    data.forEach(waybill => this.waybills.push(waybill))
-                )
-            }
-        )
-    },
     methods: {
         editWaybill(waybill) {
             this.waybill = waybill;
@@ -111,5 +113,13 @@ var app = new Vue({
     template: "<waybills-list :waybills='waybills'/>",
     data: {
         waybills: []
-    }
-});
+    },
+    created: function () {
+        waybillApi.get().then(result => {
+                result.json().then(data =>
+                    data.forEach(waybill => this.waybills.push(waybill))
+                )
+            }
+        )
+    },
+});*/
